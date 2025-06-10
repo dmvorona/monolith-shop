@@ -23,4 +23,12 @@ func SetupRoutes(r *gin.Engine) {
 	{
 		order.POST("/", controllers.PlaceOrder)
 	}
+
+	cart := r.Group("/cart")
+	{
+		cart.POST("/add", controllers.AddToCart)
+		cart.GET("/", controllers.ViewCart)
+		cart.DELETE("/remove/:id", controllers.RemoveFromCart)
+	}
+
 }
