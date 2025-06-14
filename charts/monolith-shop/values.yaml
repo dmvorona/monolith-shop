@@ -1,0 +1,89 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  hosts:
+    - host: todo
+      paths:
+        - path: /recipes(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: recipes-api
+              port:
+                number: 80
+        - path: /users(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: users-api
+              port:
+                number: 80
+        - path: /products(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: products-api
+              port:
+                number: 80
+  tls:
+    - hosts:
+        - todo
+      secretName: shop-tls
+
+resources: {}
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+volumes: []
+
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
