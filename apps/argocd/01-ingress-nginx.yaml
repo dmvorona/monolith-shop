@@ -7,13 +7,12 @@ spec:
   project: default
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 4.7.0
+    targetRevision: 4.12.3
     chart: ingress-nginx
     helm:
-      values: |
+      valuesObject:
         controller:
           service:
-            loadBalancerIP: 20.253.113.190
             externalTrafficPolicy: Local
           nodeSelector:
             beta.kubernetes.io/os: linux

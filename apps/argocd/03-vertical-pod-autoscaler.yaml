@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://cowboysysop.github.io/charts/
-    targetRevision: 7.0.1
+    targetRevision: 10.2.1
     chart: vertical-pod-autoscaler
   destination:
     server: 'https://kubernetes.default.svc'
