@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - 00-base.yaml
+  - 01-ingress-nginx.yaml
+  - 02-cert-manager.yaml
+  - 03-vertical-pod-autoscaler.yaml
+  - 04-kube-prometheus-stack.yaml
+  - 99-monolith-shop.yaml

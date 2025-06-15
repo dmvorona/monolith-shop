@@ -2,6 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"monolith-shop/controllers"
 )
 
@@ -32,4 +33,5 @@ func SetupRoutes(r *gin.Engine) {
 	}
 
 	r.GET("/healthz", controllers.HealthCheck)
+	r.GET("/metrics", gin.WrapH(promhttp.Handler()))
 }

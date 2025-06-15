@@ -27,7 +27,7 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
-    - host: todo
+    - host: localhost
       paths:
         - path: /user(/|$)(.*)
           pathType: Prefix
@@ -35,28 +35,28 @@ ingress:
             service:
               name: todo
               port:
-                number: 80
+                number: 8080
         - path: /products(/|$)(.*)
           pathType: Prefix
           backend:
             service:
               name: todo
               port:
-                number: 80
+                number: 8080
         - path: /order(/|$)(.*)
           pathType: Prefix
           backend:
             service:
               name: todo
               port:
-                number: 80
+                number: 8080
         - path: /cart(/|$)(.*)
           pathType: Prefix
           backend:
             service:
               name: todo
               port:
-                number: 80
+                number: 8080
   tls:
     - hosts:
         - todo

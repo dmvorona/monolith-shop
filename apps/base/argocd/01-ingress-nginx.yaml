@@ -13,6 +13,7 @@ spec:
       valuesObject:
         controller:
           service:
+            type: NodePort
             externalTrafficPolicy: Local
           nodeSelector:
             beta.kubernetes.io/os: linux
