@@ -31,4 +31,5 @@ func SetupRoutes(r *gin.Engine) {
 		cart.DELETE("/remove/:id", controllers.RemoveFromCart)
 	}
 
+	r.GET("/healthz", controllers.HealthCheck)
 }

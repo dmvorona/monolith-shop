@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: monolith-shop
+  repository: dmytrovorona1nure/monolith-shop
   pullPolicy: Always
   tag: "latest"
 
@@ -16,10 +16,9 @@ serviceAccount:
 podAnnotations: {}
 podLabels: {}
 
-
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: true
@@ -67,11 +66,11 @@ resources: {}
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /healthz
     port: http
 readinessProbe:
   httpGet:
-    path: /
+    path: /healthz
     port: http
 
 autoscaling:
@@ -83,4 +82,3 @@ autoscaling:
 volumes: []
 
 volumeMounts: []
-
