@@ -6,8 +6,6 @@ image:
   tag: "latest"
 
 imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
 
 serviceAccount:
   create: true
@@ -18,9 +16,6 @@ serviceAccount:
 podAnnotations: {}
 podLabels: {}
 
-podSecurityContext: {}
-
-securityContext: {}
 
 service:
   type: ClusterIP
@@ -89,8 +84,3 @@ volumes: []
 
 volumeMounts: []
 
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
