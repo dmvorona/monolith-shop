@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
   repository: monolith-shop
-  pullPolicy: IfNotPresent
-  tag: ""
+  pullPolicy: Always
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -35,25 +35,32 @@ ingress:
   hosts:
     - host: todo
       paths:
-        - path: /recipes(/|$)(.*)
+        - path: /user(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: recipes-api
-              port:
-                number: 80
-        - path: /users(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: users-api
+              name: todo
               port:
                 number: 80
         - path: /products(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: products-api
+              name: todo
+              port:
+                number: 80
+        - path: /order(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: todo
+              port:
+                number: 80
+        - path: /cart(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: todo
               port:
                 number: 80
   tls:
@@ -73,7 +80,7 @@ readinessProbe:
     port: http
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80

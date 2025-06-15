@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/dmvorona/monolith-shop.git
     targetRevision: dev
-    path: charts
+    path: charts/monolith-shop
     directory:
       recurse: true
   destination:

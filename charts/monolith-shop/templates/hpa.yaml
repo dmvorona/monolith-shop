@@ -3,6 +3,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{ include "monolith-shop.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "monolith-shop.labels" . | nindent 4 }}
 spec:
