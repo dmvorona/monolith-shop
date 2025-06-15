@@ -33,33 +33,33 @@ ingress:
           pathType: Prefix
           backend:
             service:
-              name: todo
+              name: monolith-shop
               port:
                 number: 8080
         - path: /products(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: todo
+              name: monolith-shop
               port:
                 number: 8080
         - path: /order(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: todo
+              name: monolith-shop
               port:
                 number: 8080
         - path: /cart(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: todo
+              name: monolith-shop
               port:
                 number: 8080
   tls:
     - hosts:
-        - todo
+        - localhost
       secretName: shop-tls
 
 resources: {}
