@@ -1,8 +1,7 @@
 package controllers
 
 import (
-	"github.com/dmytrovorona/monolith-shop/db"
-	"github.com/dmytrovorona/monolith-shop/models"
+	"github.com/dmvorona/monolith-shop/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

@@ -1,7 +1,7 @@
 package products
 
 import (
-	"github.com/dmytrovorona/monolith-shop/controllers"
+	"github.com/dmvorona/monolith-shop/controllers"
 	"log"
 	"net/http"
 )
