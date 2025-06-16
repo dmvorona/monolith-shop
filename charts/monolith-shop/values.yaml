@@ -1,9 +1,58 @@
-replicaCount: 1
+deploy:
+  monolith: true
+  microservices: false
 
-image:
-  repository: dmvorona1nure/shop
-  pullPolicy: Always
-  tag: "latest"
+monolith:
+  name: monolith-shop
+  image:
+    repository: dmytrovorona1nure/monolith-shop
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    port: 8080
+  replicaCount: 1
+
+microservices:
+  product:
+    enabled: true
+    name: product-service
+    image:
+      repository: dmytrovorona1nure/products
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      port: 8081
+    replicaCount: 1
+  user:
+    enabled: true
+    name: user-service
+    image:
+      repository: dmytrovorona1nure/users
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      port: 8082
+    replicaCount: 1
+  cart:
+    enabled: true
+    name: cart-service
+    image:
+      repository: dmytrovorona1nure/carts
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      port: 8083
+    replicaCount: 1
+  order:
+    enabled: true
+    name: order-service
+    image:
+      repository: dmytrovorona1nure/orders
+      tag: latest
+      pullPolicy: IfNotPresent
+    service:
+      port: 8084
+    replicaCount: 1
 
 imagePullSecrets: []
 
@@ -16,10 +65,6 @@ serviceAccount:
 podAnnotations: {}
 podLabels: {}
 
-service:
-  type: ClusterIP
-  port: 8080
-
 ingress:
   enabled: true
   className: ""
@@ -29,34 +74,34 @@ ingress:
   hosts:
     - host: localhost
       paths:
-        - path: /user(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: shop
-              port:
-                number: 8080
         - path: /products(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: shop
+              name: product-service
               port:
-                number: 8080
-        - path: /order(/|$)(.*)
+                number: 8081
+        - path: /users(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: user-service
+              port:
+                number: 8082
+        - path: /carts(/|$)(.*)
           pathType: Prefix
           backend:
             service:
               name: shop
               port:
-                number: 8080
-        - path: /cart(/|$)(.*)
+                number: 8083
+        - path: /orders(/|$)(.*)
           pathType: Prefix
           backend:
             service:
               name: shop
               port:
-                number: 8080
+                number: 8084
   tls:
     - hosts:
         - localhost

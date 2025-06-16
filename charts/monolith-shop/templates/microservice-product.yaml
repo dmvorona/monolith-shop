@@ -1,0 +1,37 @@
+{{- if and .Values.deploy.microservices .Values.microservices.product.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.microservices.product.name }}
+  labels:
+    app: {{ .Values.microservices.product.name }}
+spec:
+  replicas: {{ .Values.microservices.product.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.microservices.product.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.microservices.product.name }}
+    spec:
+      containers:
+        - name: {{ .Values.microservices.product.name }}
+          image: "{{ .Values.microservices.product.image.repository }}:{{ .Values.microservices.product.image.tag }}"
+          imagePullPolicy: {{ .Values.microservices.product.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.microservices.product.service.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.microservices.product.name }}
+spec:
+  selector:
+    app: {{ .Values.microservices.product.name }}
+  ports:
+    - port: 80
+      targetPort: {{ .Values.microservices.product.service.port }}
+      protocol: TCP
+      name: http
+{{- end }}

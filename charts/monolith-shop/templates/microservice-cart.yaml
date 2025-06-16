@@ -1,0 +1,37 @@
+{{- if and .Values.deploy.microservices .Values.microservices.cart.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.microservices.cart.name }}
+  labels:
+    app: {{ .Values.microservices.cart.name }}
+spec:
+  replicas: {{ .Values.microservices.cart.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.microservices.cart.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.microservices.cart.name }}
+    spec:
+      containers:
+        - name: {{ .Values.microservices.cart.name }}
+          image: "{{ .Values.microservices.cart.image.repository }}:{{ .Values.microservices.cart.image.tag }}"
+          imagePullPolicy: {{ .Values.microservices.cart.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.microservices.cart.service.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.microservices.cart.name }}
+spec:
+  selector:
+    app: {{ .Values.microservices.cart.name }}
+  ports:
+    - port: 80
+      targetPort: {{ .Values.microservices.cart.service.port }}
+      protocol: TCP
+      name: http
+{{- end }}

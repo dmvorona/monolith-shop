@@ -1,0 +1,37 @@
+{{- if and .Values.deploy.microservices .Values.microservices.user.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.microservices.user.name }}
+  labels:
+    app: {{ .Values.microservices.user.name }}
+spec:
+  replicas: {{ .Values.microservices.user.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.microservices.user.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.microservices.user.name }}
+    spec:
+      containers:
+        - name: {{ .Values.microservices.user.name }}
+          image: "{{ .Values.microservices.user.image.repository }}:{{ .Values.microservices.user.image.tag }}"
+          imagePullPolicy: {{ .Values.microservices.user.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.microservices.user.service.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.microservices.user.name }}
+spec:
+  selector:
+    app: {{ .Values.microservices.user.name }}
+  ports:
+    - port: 80
+      targetPort: {{ .Values.microservices.user.service.port }}
+      protocol: TCP
+      name: http
+{{- end }}

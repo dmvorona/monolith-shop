@@ -1,0 +1,37 @@
+{{- if .Values.deploy.monolith }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.monolith.name }}
+  labels:
+    app: {{ .Values.monolith.name }}
+spec:
+  replicas: {{ .Values.monolith.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.monolith.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.monolith.name }}
+    spec:
+      containers:
+        - name: {{ .Values.monolith.name }}
+          image: "{{ .Values.monolith.image.repository }}:{{ .Values.monolith.image.tag }}"
+          imagePullPolicy: {{ .Values.monolith.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.monolith.service.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.monolith.name }}
+spec:
+  selector:
+    app: {{ .Values.monolith.name }}
+  ports:
+    - port: 80
+      targetPort: {{ .Values.monolith.service.port }}
+      protocol: TCP
+      name: http
+{{- end }}
