@@ -1,11 +1,10 @@
-module github.com/dmvorona/shop/routes
+module github.com/dmvorona/shop
 
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/controllers v0.0.0-20250616211025-e675bc968297
-	github.com/gin-gonic/gin v1.10.1
-	github.com/prometheus/client_golang v1.22.0
+	github.com/dmvorona/shop/db v0.0.0-20250616211025-e675bc968297
+	github.com/dmvorona/shop/routes v0.0.0-20250616211025-e675bc968297
 )
 
 require (
@@ -14,10 +13,11 @@ require (
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect
-	github.com/dmvorona/shop/db v0.0.0-20250616203006-4c8587c3bde9 // indirect
+	github.com/dmvorona/shop/controllers v0.0.0-20250616203006-4c8587c3bde9 // indirect
 	github.com/dmvorona/shop/models v0.0.0-20250616203006-4c8587c3bde9 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.9 // indirect
 	github.com/gin-contrib/sse v1.1.0 // indirect
+	github.com/gin-gonic/gin v1.10.1 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.26.0 // indirect
@@ -26,7 +26,6 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.10 // indirect
-	github.com/kr/text v0.2.0 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
@@ -34,6 +33,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
+	github.com/prometheus/client_golang v1.22.0 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
 	github.com/prometheus/common v0.62.0 // indirect
 	github.com/prometheus/procfs v0.15.1 // indirect
