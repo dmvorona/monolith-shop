@@ -3,7 +3,7 @@ module github.com/dmvorona/shop/services/carts
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/controllers v0.0.0-20250616203006-4c8587c3bde9
+	github.com/dmvorona/shop/controllers v0.0.0-20250616211025-e675bc968297
 	github.com/gin-gonic/gin v1.10.1
 )
 
