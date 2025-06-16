@@ -11,8 +11,11 @@ spec:
     path: charts/shop
     helm:
       valuesObject:
+        deploy:
+          monolith: false
+          microservices: true
         autoscaling:
-          enabled: false
+          enabled: true
         resources:
           requests:
             cpu: 100m
