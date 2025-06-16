@@ -7,7 +7,7 @@ monolith:
   image:
     repository: dmytrovorona1nure/monolith-shop
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
   service:
     port: 8080
   replicaCount: 1
@@ -19,7 +19,7 @@ microservices:
     image:
       repository: dmytrovorona1nure/products
       tag: latest
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
     service:
       port: 8081
     replicaCount: 1
@@ -29,7 +29,7 @@ microservices:
     image:
       repository: dmytrovorona1nure/users
       tag: latest
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
     service:
       port: 8082
     replicaCount: 1
@@ -39,7 +39,7 @@ microservices:
     image:
       repository: dmytrovorona1nure/carts
       tag: latest
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
     service:
       port: 8083
     replicaCount: 1
@@ -49,7 +49,7 @@ microservices:
     image:
       repository: dmytrovorona1nure/orders
       tag: latest
-      pullPolicy: IfNotPresent
+      pullPolicy: Always
     service:
       port: 8084
     replicaCount: 1
