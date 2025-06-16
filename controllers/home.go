@@ -1,11 +1,10 @@
 package controllers
 
 import (
-	"monolith-shop/db"
-	"monolith-shop/models"
-	"net/http"
-
+	"github.com/dmytrovorona/monolith-shop/db"
+	"github.com/dmytrovorona/monolith-shop/models"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func Home(c *gin.Context) {

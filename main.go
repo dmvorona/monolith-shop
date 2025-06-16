@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/dmytrovorona/monolith-shop/db"
+	"github.com/dmytrovorona/monolith-shop/routes"
 	"github.com/gin-gonic/gin"
-	"monolith-shop/db"
-	"monolith-shop/routes"
 )
 
 func main() {
