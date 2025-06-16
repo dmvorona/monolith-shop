@@ -9,7 +9,7 @@ import (
 func SetupRoutes(r *gin.Engine) {
 	r.GET("/", controllers.Home)
 
-	user := r.Group("/user")
+	user := r.Group("/users")
 	{
 		user.POST("/register", controllers.RegisterUser)
 	}
@@ -20,12 +20,13 @@ func SetupRoutes(r *gin.Engine) {
 		product.POST("/", controllers.CreateProduct)
 	}
 
-	order := r.Group("/order")
+	order := r.Group("/orders")
 	{
-		order.POST("/", controllers.PlaceOrder)
+		order.GET("/", controllers.ListOrders)
+		order.POST("/", controllers.CreateOrder)
 	}
 
-	cart := r.Group("/cart")
+	cart := r.Group("/carts")
 	{
 		cart.POST("/add", controllers.AddToCart)
 		cart.GET("/", controllers.ViewCart)

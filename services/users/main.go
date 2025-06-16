@@ -14,5 +14,5 @@ func main() {
 		userGroup.POST("/", controllers.RegisterUser)
 	}
 
-	r.Run(":8080")
+	r.Run(":8082")
 }

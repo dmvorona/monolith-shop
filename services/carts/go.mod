@@ -3,7 +3,7 @@ module github.com/dmvorona/shop/services/carts
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/controllers v0.0.0-20250616211025-e675bc968297
+	github.com/dmvorona/shop/controllers v0.0.0-20250616213246-fff364552c76
 	github.com/gin-gonic/gin v1.10.1
 )
 
@@ -11,7 +11,7 @@ require (
 	github.com/bytedance/sonic v1.13.3 // indirect
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect
-	github.com/dmvorona/shop/db v0.0.0-20250616203006-4c8587c3bde9 // indirect
+	github.com/dmvorona/shop/db v0.0.0-20250616211025-e675bc968297 // indirect
 	github.com/dmvorona/shop/models v0.0.0-20250616203006-4c8587c3bde9 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.9 // indirect
 	github.com/gin-contrib/sse v1.1.0 // indirect

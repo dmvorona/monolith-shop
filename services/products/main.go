@@ -11,5 +11,5 @@ func main() {
 	r.GET("/products", controllers.ListProducts)
 	r.POST("/products", controllers.CreateProduct)
 
-	r.Run(":8080")
+	r.Run(":8081")
 }
