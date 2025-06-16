@@ -1,16 +1,16 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: monolith-shop
+  name: shop
   labels:
     release: prometheus
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: monolith-shop
+      app.kubernetes.io/name: shop
   namespaceSelector:
     matchNames:
-      - monolith-shop
+      - shop
   endpoints:
     - port: http
       path: /metrics

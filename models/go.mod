@@ -1,4 +1,4 @@
-module github.com/dmvorona/monolith-shop/models
+module github.com/dmvorona/shop/models
 
 go 1.24.4
 

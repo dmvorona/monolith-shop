@@ -1,6 +1,6 @@
 apiVersion: v2
-name: monolith-shop
-description: Monolith shop
+name: shop
+description: Shop app
 
 type: application
 

@@ -1,9 +1,9 @@
 package db
 
 import (
+	"github.com/dmvorona/shop/models"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"monolith-shop/models"
 )
 
 var DB *gorm.DB

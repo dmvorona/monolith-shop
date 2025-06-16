@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: dmytrovorona1nure/monolith-shop
+  repository: dmvorona1nure/shop
   pullPolicy: Always
   tag: "latest"
 
@@ -33,28 +33,28 @@ ingress:
           pathType: Prefix
           backend:
             service:
-              name: monolith-shop
+              name: shop
               port:
                 number: 8080
         - path: /products(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: monolith-shop
+              name: shop
               port:
                 number: 8080
         - path: /order(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: monolith-shop
+              name: shop
               port:
                 number: 8080
         - path: /cart(/|$)(.*)
           pathType: Prefix
           backend:
             service:
-              name: monolith-shop
+              name: shop
               port:
                 number: 8080
   tls:

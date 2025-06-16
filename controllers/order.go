@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"monolith-shop/db"
-	"monolith-shop/models"
 	"net/http"
+	"shop/db"
+	"shop/models"
 )
 
 func PlaceOrder(c *gin.Context) {

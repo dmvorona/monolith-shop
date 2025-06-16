@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/dmvorona/monolith-shop/models"
+	"github.com/dmvorona/shop/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

@@ -1,11 +1,10 @@
 package controllers
 
 import (
-	"monolith-shop/db"
-	"monolith-shop/models"
-	"net/http"
-
+	"github.com/dmvorona/shop/db"
+	"github.com/dmvorona/shop/models"
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 type AddToCartInput struct {

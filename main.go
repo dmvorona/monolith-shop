@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/dmvorona/monolith-shop/db"
-	"github.com/dmvorona/monolith-shop/routes"
+	"github.com/dmvorona/shop/db"
+	"github.com/dmvorona/shop/routes"
 	"github.com/gin-gonic/gin"
 )
 

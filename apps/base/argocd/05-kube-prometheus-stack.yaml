@@ -9,6 +9,13 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 74.2.1
     chart: kube-prometheus-stack
+#    helm:
+#      valuesObject:
+#        prometheus:
+#          prometheusSpec:
+#            additionalScrapeConfigs:
+#              name: additional-scrape-configs
+#              key: additional-scrape-configs.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: monitoring

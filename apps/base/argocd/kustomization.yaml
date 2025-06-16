@@ -3,7 +3,8 @@ kind: Kustomization
 resources:
   - 00-base.yaml
   - 01-ingress-nginx.yaml
-  - 02-cert-manager.yaml
-  - 03-vertical-pod-autoscaler.yaml
-  - 04-kube-prometheus-stack.yaml
-  - 99-monolith-shop.yaml
+  - 02-metrics-server.yaml
+  - 03-cert-manager.yaml
+  - 04-vertical-pod-autoscaler.yaml
+  - 05-kube-prometheus-stack.yaml
+  - 99-shop.yaml

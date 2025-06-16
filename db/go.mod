@@ -1,8 +1,9 @@
-module github.com/dmvorona/monolith-shop/db
+module github.com/dmvorona/shop/db
 
 go 1.24.4
 
 require (
+	github.com/dmvorona/shop/models v0.0.0-20250616200252-fbde31581115
 	gorm.io/driver/sqlite v1.6.0
 	gorm.io/gorm v1.30.0
 )

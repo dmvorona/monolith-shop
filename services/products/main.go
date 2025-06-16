@@ -1,16 +1,15 @@
 package products
 
 import (
-	"github.com/dmvorona/monolith-shop/controllers"
-	"log"
-	"net/http"
+	"github.com/dmvorona/shop/controllers"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/products", controllers.ListProducts)
-	mux.HandleFunc("/products/", controllers.CreateProduct)
+	r := gin.Default()
 
-	log.Println("Product service running on port 8081")
-	log.Fatal(http.ListenAndServe(":8081", mux))
+	r.GET("/products", controllers.ListProducts)
+	r.POST("/products", controllers.CreateProduct)
+
+	r.Run(":8080")
 }

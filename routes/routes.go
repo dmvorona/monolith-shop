@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/dmvorona/monolith-shop/controllers"
+	"github.com/dmvorona/shop/controllers"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
