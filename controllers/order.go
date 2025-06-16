@@ -7,7 +7,13 @@ import (
 	"net/http"
 )
 
-func PlaceOrder(c *gin.Context) {
+func ListOrders(c *gin.Context) {
+	var orders []models.Order
+	db.DB.Find(&orders)
+	c.JSON(http.StatusOK, orders)
+}
+
+func CreateOrder(c *gin.Context) {
 	var input models.Order
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
