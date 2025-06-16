@@ -2,8 +2,6 @@ module github.com/dmvorona/shop/services/products
 
 go 1.24.4
 
-require github.com/dmvorona/shop/controllers v0.0.0-20250616200720-7b62dca9bfce
-
 require (
 	github.com/bytedance/sonic v1.13.3 // indirect
 	github.com/bytedance/sonic/loader v0.2.4 // indirect

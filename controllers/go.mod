@@ -3,8 +3,6 @@ module github.com/dmvorona/shop/controllers
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/db v0.0.0-20250616200720-7b62dca9bfce
-	github.com/dmvorona/shop/models v0.0.0-20250616200252-fbde31581115
 	github.com/gin-gonic/gin v1.10.1
 )
 
