@@ -10,17 +10,17 @@ RUN go mod download
 
 COPY . ./
 
-RUN go build -o carts main.go
+RUN go build -o orders main.go
 
 FROM alpine:latest
 
 WORKDIR /root/
 
-COPY --from=builder /app/carts .
+COPY --from=builder /app/orders .
 
 # Needed for SQLite
 RUN apk add --no-cache sqlite-libs
 
 EXPOSE 8084
 
-CMD ["./carts"]
+CMD ["./orders"]

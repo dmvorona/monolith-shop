@@ -8,8 +8,12 @@ import (
 func main() {
 	r := gin.Default()
 
-	r.GET("/orders", controllers.ListOrders)
-	r.POST("/orders", controllers.CreateOrder)
+	cart := r.Group("/carts")
+	{
+		cart.POST("/add", controllers.AddToCart)
+		cart.GET("/", controllers.ViewCart)
+		cart.DELETE("/remove/:id", controllers.RemoveFromCart)
+	}
 
-	r.Run(":8084")
+	r.Run(":8083")
 }

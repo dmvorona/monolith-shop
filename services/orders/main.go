@@ -1,4 +1,4 @@
-package orders
+package main
 
 import (
 	"github.com/dmvorona/shop/controllers"

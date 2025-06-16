@@ -1,4 +1,4 @@
-package users
+package main
 
 import (
 	"github.com/dmvorona/shop/controllers"

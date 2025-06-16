@@ -11,10 +11,16 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dmvorona/shop/controllers v0.0.0-20250616215721-8597ec22e481 h1:924mVgNNHAO2HMIjugY05Nkm5gsuaQRQoimCYqR9IzY=
 github.com/dmvorona/shop/controllers v0.0.0-20250616215721-8597ec22e481/go.mod h1:mQdqR6B+enEKQ+vN53TNBWHVBQoi/ls3G3Ea9xHRlKY=
+github.com/dmvorona/shop/controllers v0.0.0-20250616223524-b3b14bc19840 h1:zaEDadXF5yXY7vUXdnRb8dOuShlbU4JA6EdRcXea4EQ=
+github.com/dmvorona/shop/controllers v0.0.0-20250616223524-b3b14bc19840/go.mod h1:mQdqR6B+enEKQ+vN53TNBWHVBQoi/ls3G3Ea9xHRlKY=
 github.com/dmvorona/shop/db v0.0.0-20250616215721-8597ec22e481 h1:Tdm51cqHavYJAggF8t3klk9i26gKUtJ3uHBWUWVeV8w=
 github.com/dmvorona/shop/db v0.0.0-20250616215721-8597ec22e481/go.mod h1:3lWmSunUb7LBb1ky6BfDX1PRuxqlQjA0/VYRRhoxrC4=
+github.com/dmvorona/shop/db v0.0.0-20250616223524-b3b14bc19840 h1:Q+8XYnNEPmzvP9z/jkqkkW52CgY8b+31DtpUnQ+hmX0=
+github.com/dmvorona/shop/db v0.0.0-20250616223524-b3b14bc19840/go.mod h1:uqMG3mXGLC/Ct23Ngy0X1Nfc6XW/MYt+Vv3ViE2+2Ac=
 github.com/dmvorona/shop/models v0.0.0-20250616215721-8597ec22e481 h1:AB2nHQscGsN2/Vvw3oli55MJYK2ardf/Hs/QoA5tmGg=
 github.com/dmvorona/shop/models v0.0.0-20250616215721-8597ec22e481/go.mod h1:18VVjgRl9gTdB6dLjImQVkkq0d1oLcRH2OPz94BLCTw=
+github.com/dmvorona/shop/models v0.0.0-20250616223524-b3b14bc19840 h1:AaccJ56SWhe+yaSNOKswCBSBuOUyJUFnuERpOjPS0dw=
+github.com/dmvorona/shop/models v0.0.0-20250616223524-b3b14bc19840/go.mod h1:q1Z/a1MgVQ6XXYe6p5H2ZCHWfe3j7W8I2WuPE4S1BrA=
 github.com/gabriel-vasile/mimetype v1.4.9 h1:5k+WDwEsD9eTLL8Tz3L0VnmVh9QxGjRmjBvAG7U/oYY=
 github.com/gabriel-vasile/mimetype v1.4.9/go.mod h1:WnSQhFKJuBlRyLiKohA/2DtIlPFAbguNaG7QCHcyGok=
 github.com/gin-contrib/sse v1.1.0 h1:n0w2GMuUpWDVp7qSpvze6fAu9iRxJY4Hmj6AmBOU05w=
