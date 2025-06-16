@@ -17,3 +17,9 @@ func RegisterUser(c *gin.Context) {
 	db.DB.Create(&user)
 	c.JSON(http.StatusOK, user)
 }
+
+func ListUsers(c *gin.Context) {
+	var users []models.User
+	db.DB.Find(&users)
+	c.JSON(http.StatusOK, users)
+}

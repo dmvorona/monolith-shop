@@ -1,10 +1,10 @@
 package controllers
 
 import (
+	"github.com/dmvorona/shop/db"
+	"github.com/dmvorona/shop/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"shop/db"
-	"shop/models"
 )
 
 func PlaceOrder(c *gin.Context) {

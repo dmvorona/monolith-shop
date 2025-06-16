@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"github.com/dmvorona/shop/db"
 	"github.com/dmvorona/shop/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
