@@ -33,12 +33,14 @@ spec:
           - path: {{ .path }}
             {{- with .pathType }}
             pathType: {{ . }}
+            {{- else }}
+            pathType: ImplementationSpecific
             {{- end }}
             backend:
               service:
-                name: {{ include "shop.fullname" $ }}
+                name: {{ .backend.service.name }}
                 port:
-                  number: {{ $.Values.service.port }}
+                  number: {{ .backend.service.port }}
           {{- end }}
     {{- end }}
 {{- end }}
