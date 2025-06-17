@@ -122,7 +122,7 @@ autoscaling:
   enabled: true
   services:
     - name: product
-      minReplicas: 2
+      minReplicas: 1
       maxReplicas: 10
       targetCPUUtilizationPercentage: 80
     - name: user
