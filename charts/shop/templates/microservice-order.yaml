@@ -30,7 +30,7 @@ spec:
   selector:
     app: {{ .Values.microservices.order.name }}
   ports:
-    - port: 80
+    - port: 8084
       targetPort: {{ .Values.microservices.order.service.port }}
       protocol: TCP
       name: http
