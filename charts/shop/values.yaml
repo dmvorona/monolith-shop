@@ -123,19 +123,19 @@ autoscaling:
   services:
     - name: product
       minReplicas: 2
-      maxReplicas: 5
+      maxReplicas: 10
       targetCPUUtilizationPercentage: 80
     - name: user
       minReplicas: 1
-      maxReplicas: 4
+      maxReplicas: 10
       targetCPUUtilizationPercentage: 70
     - name: cart
       minReplicas: 1
-      maxReplicas: 3
+      maxReplicas: 10
       targetCPUUtilizationPercentage: 75
     - name: order
       minReplicas: 1
-      maxReplicas: 3
+      maxReplicas: 10
       targetCPUUtilizationPercentage: 65
 
 
