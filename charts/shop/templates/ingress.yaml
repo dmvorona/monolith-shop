@@ -27,7 +27,8 @@ spec:
 
   rules:
     {{- $root := . }}
-    {{- if .Values.ingress.monolith.hosts }}
+
+    {{- if .Values.deploy.monolith }}
       {{- range .Values.ingress.monolith.hosts }}
     - host: {{ .host | quote }}
       http:
@@ -42,7 +43,7 @@ spec:
                   number: {{ .backend.service.port.number }}
           {{- end }}
       {{- end }}
-    {{- else if .Values.ingress.services.hosts }}
+    {{- else if .Values.deploy.microservices }}
       {{- range .Values.ingress.services.hosts }}
     - host: {{ .host | quote }}
       http:
@@ -58,4 +59,5 @@ spec:
           {{- end }}
       {{- end }}
     {{- end }}
+
 {{- end }}
