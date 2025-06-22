@@ -28,3 +28,7 @@ spec:
         name: cert-manager-webhook
         jqPathExpressions:
           - .webhooks[].namespaceSelector.matchExpressions[] | select(.key == "control-plane")
+      - group: admissionregistration.k8s.io
+        kind: ValidatingWebhookConfiguration
+        jsonPointers:
+          - /webhooks/0/namespaceSelector/matchExpressions/1
