@@ -14,13 +14,15 @@ RUN go mod download
 
 COPY . ./
 
-RUN go build -o orders main.go
+RUN go build -o orders services/orders/main.go
 
 FROM alpine:latest
 
 WORKDIR /root/
 
 COPY --from=builder /app/orders .
+COPY --from=builder /app/templates ./templates
+COPY --from=builder /app/static ./static
 
 # Needed for SQLite
 RUN apk add --no-cache sqlite-libs
