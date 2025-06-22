@@ -11,7 +11,10 @@ spec:
           monolith: false
           microservices: true
         autoscaling:
-          enabled: true
+          hpa:
+            enabled: true
+          vpa:
+            enabled: true
         resources:
           requests:
             cpu: 100m

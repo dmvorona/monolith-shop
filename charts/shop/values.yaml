@@ -19,7 +19,7 @@ microservices:
     enabled: true
     name: product-service
     image:
-      repository: dmytrovorona1nure/products
+      repository: dmvoronashop.azurecr.io/products
       tag: latest
       pullPolicy: Always
     service:
@@ -29,7 +29,7 @@ microservices:
     enabled: true
     name: user-service
     image:
-      repository: dmytrovorona1nure/users
+      repository: dmvoronashop.azurecr.io/users
       tag: latest
       pullPolicy: Always
     service:
@@ -39,7 +39,7 @@ microservices:
     enabled: true
     name: cart-service
     image:
-      repository: dmytrovorona1nure/carts
+      repository: dmvoronashop.azurecr.io/carts
       tag: latest
       pullPolicy: Always
     service:
@@ -49,7 +49,7 @@ microservices:
     enabled: true
     name: order-service
     image:
-      repository: dmytrovorona1nure/orders
+      repository: dmvoronashop.azurecr.io/orders
       tag: latest
       pullPolicy: Always
     service:
@@ -189,6 +189,7 @@ autoscaling:
       maxAllowed:
         cpu: 800m
         memory: 1600Mi
+      controlledResources: [ "cpu", "memory" ]
     services:
       - name: product
         maxAllowed:

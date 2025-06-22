@@ -6,6 +6,10 @@ RUN apk add --no-cache git build-base
 
 COPY go.mod ./
 COPY go.sum ./
+COPY controllers ./
+COPY db ./
+COPY routes ./
+COPY models ./
 RUN go mod download
 
 COPY . ./
