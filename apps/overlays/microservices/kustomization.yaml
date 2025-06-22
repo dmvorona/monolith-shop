@@ -4,7 +4,6 @@ resources:
   - ../../base/argocd
   - ../../base/cert-manager
   - ../../base/monitoring
-  - vpa.yaml
 patches:
   - target:
       kind: Application

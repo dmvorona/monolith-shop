@@ -13,7 +13,8 @@ spec:
       valuesObject:
         controller:
           service:
-            type: NodePort
+#            type: NodePort
+            loadBalancerIP: 134.112.9.129
             externalTrafficPolicy: Local
           nodeSelector:
             beta.kubernetes.io/os: linux

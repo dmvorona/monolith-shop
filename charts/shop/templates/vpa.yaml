@@ -1,0 +1,60 @@
+{{- if .Values.autoscaling.vpa.enabled }}
+
+{{- /* VPA for microservices */}}
+{{- range .Values.autoscaling.vpa.services }}
+---
+apiVersion: "autoscaling.k8s.io/v1"
+kind: VerticalPodAutoscaler
+metadata:
+  name: {{ .name }}-vpa
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: {{ .name }}
+    {{- include "shop.labels" $ | nindent 4 }}
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: {{ .name }}-service
+  updatePolicy:
+    updateMode: "Auto"
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "{{ .name }}-service"
+        maxAllowed:
+          cpu: {{ .maxAllowed.cpu }}
+          memory: {{ .maxAllowed.memory }}
+        controlledResources:
+          {{- toYaml .controlledResources | nindent 10 }}
+{{- end }}
+
+{{- /* VPA for monolith */}}
+{{- with .Values.autoscaling.vpa.monolith }}
+---
+apiVersion: "autoscaling.k8s.io/v1"
+kind: VerticalPodAutoscaler
+metadata:
+  name: monolith-shop-vpa
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: monolith-shop
+    {{- include "shop.labels" $ | nindent 4 }}
+spec:
+  targetRef:
+    apiVersion: "apps/v1"
+    kind: Deployment
+    name: {{ $.Release.Name }}-shop
+  updatePolicy:
+    updateMode: "Auto"
+  resourcePolicy:
+    containerPolicies:
+      - containerName: "{{ $.Release.Name }}-shop"
+        maxAllowed:
+          cpu: {{ .maxAllowed.cpu }}
+          memory: {{ .maxAllowed.memory }}
+        controlledResources:
+          - "cpu"
+          - "memory"
+{{- end }}
+
+{{- end }}

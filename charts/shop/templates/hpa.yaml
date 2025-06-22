@@ -1,5 +1,7 @@
-{{- if .Values.autoscaling.enabled }}
-{{- range .Values.autoscaling.services }}
+{{- if .Values.autoscaling.hpa.enabled }}
+
+{{- /* HPA for microservices */}}
+{{- range .Values.autoscaling.hpa.services }}
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -24,4 +26,32 @@ spec:
           type: Utilization
           averageUtilization: {{ .targetCPUUtilizationPercentage }}
 {{- end }}
+
+{{- /* HPA for monolith */}}
+{{- with .Values.autoscaling.hpa.monolith }}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: monolith-shop-hpa
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    app: monolith-shop
+    {{- include "shop.labels" $ | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ $.Release.Name }}-shop
+  minReplicas: {{ .minReplicas }}
+  maxReplicas: {{ .maxReplicas }}
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: {{ .targetCPUUtilizationPercentage }}
+{{- end }}
+
 {{- end }}

@@ -4,6 +4,5 @@ resources:
   - ../../base/argocd
   - ../../base/cert-manager
   - ../../base/monitoring
-  - vpa.yaml
 patchesStrategicMerge:
   - patch-shop.yaml
