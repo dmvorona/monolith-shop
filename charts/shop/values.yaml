@@ -73,37 +73,70 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-  hosts:
-    - host: shop.dmvorona.org
-      paths:
-        - path: /products(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: product-service
-              port:
-                number: 8081
-        - path: /users(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: user-service
-              port:
-                number: 8082
-        - path: /carts(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: shop
-              port:
-                number: 8083
-        - path: /orders(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: shop
-              port:
-                number: 8084
+  monolith:
+    hosts:
+      - host: shop.dmvorona.org
+        paths:
+          - path: /products(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: monolith-shop
+                port:
+                  number: 8080
+          - path: /users(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: monolith-shop
+                port:
+                  number: 8080
+          - path: /carts(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: monolith-shop
+                port:
+                  number: 8080
+          - path: /orders(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: monolith-shop
+                port:
+                  number: 8080
+  services:
+    hosts:
+      - host: shop.dmvorona.org
+        paths:
+          - path: /products(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: product-service
+                port:
+                  number: 8081
+          - path: /users(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: user-service
+                port:
+                  number: 8082
+          - path: /carts(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: cart-service
+                port:
+                  number: 8083
+          - path: /orders(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: order-service
+                port:
+                  number: 8084
   tls:
     - hosts:
         - shop.dmvorona.org
