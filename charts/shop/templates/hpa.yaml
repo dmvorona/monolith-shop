@@ -45,7 +45,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ $.Release.Name }}-shop
+    name: monolith-shop
   minReplicas: {{ .minReplicas }}
   maxReplicas: {{ .maxReplicas }}
   metrics:

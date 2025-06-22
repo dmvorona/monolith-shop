@@ -46,12 +46,12 @@ spec:
   targetRef:
     apiVersion: "apps/v1"
     kind: Deployment
-    name: {{ $.Release.Name }}-shop
+    name: monolith-shop
   updatePolicy:
     updateMode: "Auto"
   resourcePolicy:
     containerPolicies:
-      - containerName: "{{ $.Release.Name }}-shop"
+      - containerName: "monolith-shop"
         maxAllowed:
           cpu: {{ .maxAllowed.cpu }}
           memory: {{ .maxAllowed.memory }}
