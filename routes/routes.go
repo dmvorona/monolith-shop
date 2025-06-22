@@ -13,6 +13,7 @@ func SetupRoutes(r *gin.Engine) {
 	{
 		user.POST("/register", controllers.RegisterUser)
 		user.GET("/", controllers.ListUsers)
+		user.POST("/report", controllers.GenerateReport)
 		user.POST("/login", controllers.Login)
 		user.POST("/logout", controllers.Logout)
 	}
