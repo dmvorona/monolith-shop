@@ -21,6 +21,9 @@ spec:
           imagePullPolicy: {{ .Values.microservices.cart.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.microservices.cart.service.port }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.dbSecretName }}
 ---
 apiVersion: v1
 kind: Service

@@ -21,6 +21,9 @@ spec:
           imagePullPolicy: {{ .Values.monolith.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.monolith.service.port }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.dbSecretName }}
 ---
 apiVersion: v1
 kind: Service

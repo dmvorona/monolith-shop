@@ -1,8 +1,11 @@
 package db
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/dmvorona/shop/models"
-	"gorm.io/driver/sqlite"
+	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 )
 
@@ -10,10 +13,22 @@ var DB *gorm.DB
 
 func InitDB() {
 	var err error
-	DB, err = gorm.Open(sqlite.Open("shop.db"), &gorm.Config{})
+
+	server := os.Getenv("AZURE_SQL_SERVER")
+	database := os.Getenv("AZURE_SQL_DATABASE")
+	username := os.Getenv("AZURE_SQL_USER")
+	password := os.Getenv("AZURE_SQL_PASSWORD")
+
+	dsn := fmt.Sprintf("sqlserver://%s:%s@%s?database=%s",
+		username, password, server, database)
+
+	DB, err = gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
 	if err != nil {
-		panic("Failed to connect to database")
+		panic("Failed to connect to Azure SQL Database: " + err.Error())
 	}
 
-	DB.AutoMigrate(&models.User{}, &models.Product{}, &models.Order{}, &models.Cart{}, &models.CartItem{})
+	err = DB.AutoMigrate(&models.User{}, &models.Product{}, &models.Order{}, &models.Cart{}, &models.CartItem{})
+	if err != nil {
+		panic("Failed to migrate database schema: " + err.Error())
+	}
 }

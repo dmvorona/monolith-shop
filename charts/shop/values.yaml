@@ -2,6 +2,8 @@ deploy:
   monolith: true
   microservices: false
 
+dbSecretName: sql-connection
+
 monolith:
   name: monolith-shop
   image:
