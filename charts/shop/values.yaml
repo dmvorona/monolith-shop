@@ -67,7 +67,7 @@ podLabels: {}
 
 ingress:
   enabled: true
-  className: ""
+  className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
