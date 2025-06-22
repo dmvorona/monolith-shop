@@ -12,8 +12,9 @@ spec:
     helm:
       valuesObject:
         controller:
+          config:
+            strict-validate-path-type: false
           service:
-#            type: NodePort
             loadBalancerIP: 134.112.9.129
             externalTrafficPolicy: Local
           nodeSelector:
