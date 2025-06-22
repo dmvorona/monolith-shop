@@ -1,6 +1,7 @@
 {{- if .Values.autoscaling.vpa.enabled }}
 
 {{- /* VPA for microservices */}}
+{{- if .Values.deploy.microservices }}
 {{- range .Values.autoscaling.vpa.services }}
 ---
 apiVersion: "autoscaling.k8s.io/v1"
@@ -27,8 +28,10 @@ spec:
         controlledResources:
           {{- toYaml .controlledResources | nindent 10 }}
 {{- end }}
+{{- end }}
 
 {{- /* VPA for monolith */}}
+{{- if .Values.deploy.monolith }}
 {{- with .Values.autoscaling.vpa.monolith }}
 ---
 apiVersion: "autoscaling.k8s.io/v1"
@@ -55,6 +58,7 @@ spec:
         controlledResources:
           - "cpu"
           - "memory"
+{{- end }}
 {{- end }}
 
 {{- end }}

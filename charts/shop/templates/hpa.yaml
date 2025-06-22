@@ -1,6 +1,7 @@
 {{- if .Values.autoscaling.hpa.enabled }}
 
 {{- /* HPA for microservices */}}
+{{- if .Values.deploy.microservices }}
 {{- range .Values.autoscaling.hpa.services }}
 ---
 apiVersion: autoscaling/v2
@@ -26,8 +27,10 @@ spec:
           type: Utilization
           averageUtilization: {{ .targetCPUUtilizationPercentage }}
 {{- end }}
+{{- end }}
 
 {{- /* HPA for monolith */}}
+{{- if .Values.deploy.monolith }}
 {{- with .Values.autoscaling.hpa.monolith }}
 ---
 apiVersion: autoscaling/v2
@@ -52,6 +55,7 @@ spec:
         target:
           type: Utilization
           averageUtilization: {{ .targetCPUUtilizationPercentage }}
+{{- end }}
 {{- end }}
 
 {{- end }}

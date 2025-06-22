@@ -8,7 +8,8 @@ spec:
     helm:
       valuesObject:
         autoscaling:
-          enabled: true
+          hpa:
+            enabled: true
         resources:
           requests:
             cpu: 100m
