@@ -3,8 +3,7 @@ module github.com/dmvorona/shop/services/carts
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/controllers v0.0.0-20250616215721-8597ec22e481
-	github.com/dmvorona/shop/routes v0.0.0-20250616232934-cb68c2429a09
+	github.com/dmvorona/shop/controllers v0.0.0
 	github.com/gin-gonic/gin v1.10.1
 )
 
@@ -14,8 +13,8 @@ require (
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect
-	github.com/dmvorona/shop/db v0.0.0-20250616215721-8597ec22e481 // indirect
-	github.com/dmvorona/shop/models v0.0.0-20250616215721-8597ec22e481 // indirect
+	github.com/dmvorona/shop/db v0.0.0 // indirect
+	github.com/dmvorona/shop/models v0.0.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.9 // indirect
 	github.com/gin-contrib/sse v1.1.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
@@ -49,3 +48,9 @@ require (
 	gorm.io/driver/sqlite v1.6.0 // indirect
 	gorm.io/gorm v1.30.0 // indirect
 )
+
+replace github.com/dmvorona/shop/controllers => ../../controllers
+
+replace github.com/dmvorona/shop/db => ../../db
+
+replace github.com/dmvorona/shop/models => ../../models

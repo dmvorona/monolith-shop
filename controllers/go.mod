@@ -3,8 +3,8 @@ module github.com/dmvorona/shop/controllers
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/db v0.0.0-20250616211025-e675bc968297
-	github.com/dmvorona/shop/models v0.0.0-20250616203006-4c8587c3bde9
+	github.com/dmvorona/shop/db v0.0.0
+	github.com/dmvorona/shop/models v0.0.0
 	github.com/gin-gonic/gin v1.10.1
 )
 
@@ -40,3 +40,6 @@ require (
 	gorm.io/driver/sqlite v1.6.0 // indirect
 	gorm.io/gorm v1.30.0 // indirect
 )
+
+replace github.com/dmvorona/shop/models => ../models
+replace github.com/dmvorona/shop/db => ../db

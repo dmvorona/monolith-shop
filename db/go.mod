@@ -3,7 +3,7 @@ module github.com/dmvorona/shop/db
 go 1.24.4
 
 require (
-	github.com/dmvorona/shop/models v0.0.0-20250616203006-4c8587c3bde9
+	github.com/dmvorona/shop/models v0.0.0
 	gorm.io/driver/sqlite v1.6.0
 	gorm.io/gorm v1.30.0
 )
@@ -14,3 +14,5 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.28 // indirect
 	golang.org/x/text v0.26.0 // indirect
 )
+
+replace github.com/dmvorona/shop/models => ../models

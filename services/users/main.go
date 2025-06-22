@@ -13,6 +13,7 @@ func main() {
 	{
 		userGroup.GET("/", controllers.ListUsers)
 		userGroup.POST("/", controllers.RegisterUser)
+		userGroup.POST("/report", controllers.GenerateReport)
 	}
 
 	r.GET("/healthz", controllers.HealthCheck)
