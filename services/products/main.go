@@ -9,10 +9,13 @@ import (
 func main() {
 	r := gin.Default()
 
-	r.GET("", controllers.ListProducts)
-	r.POST("", controllers.CreateProduct)
-	r.PUT("/:id", controllers.UpdateProduct)
-	r.DELETE("/:id", controllers.DeleteProduct)
+	product := r.Group("/products")
+	{
+		product.GET("", controllers.ListProducts)
+		product.POST("", controllers.CreateProduct)
+		product.PUT("/:id", controllers.UpdateProduct)
+		product.DELETE("/:id", controllers.DeleteProduct)
+	}
 
 	r.GET("/healthz", controllers.HealthCheck)
 	r.GET("/metrics", gin.WrapH(promhttp.Handler()))

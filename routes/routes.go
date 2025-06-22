@@ -13,10 +13,9 @@ func SetupRoutes(r *gin.Engine) {
 	{
 		user.POST("/register", controllers.RegisterUser)
 		user.GET("/", controllers.ListUsers)
+		user.POST("/login", controllers.Login)
+		user.POST("/logout", controllers.Logout)
 	}
-
-	r.POST("/login", controllers.Login)
-	r.POST("/logout", controllers.Logout)
 
 	product := r.Group("/products")
 	{
