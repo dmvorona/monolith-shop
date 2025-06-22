@@ -71,34 +71,34 @@ ingress:
   enabled: true
   className: "nginx"
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+#    nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   monolith:
     hosts:
       - host: shop.dmvorona.org
         paths:
-          - path: /products(/|$)(.*)
+          - path: /products
             pathType: Prefix
             backend:
               service:
                 name: monolith-shop
                 port:
                   number: 8080
-          - path: /users(/|$)(.*)
+          - path: /users
             pathType: Prefix
             backend:
               service:
                 name: monolith-shop
                 port:
                   number: 8080
-          - path: /carts(/|$)(.*)
+          - path: /carts
             pathType: Prefix
             backend:
               service:
                 name: monolith-shop
                 port:
                   number: 8080
-          - path: /orders(/|$)(.*)
+          - path: /orders
             pathType: Prefix
             backend:
               service:
