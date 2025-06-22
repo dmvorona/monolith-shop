@@ -72,7 +72,7 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
-    - host: shop.local
+    - host: shop.dmvorona.org
       paths:
         - path: /products(/|$)(.*)
           pathType: Prefix
@@ -104,7 +104,7 @@ ingress:
                 number: 8084
   tls:
     - hosts:
-        - shop.local
+        - shop.dmvorona.org
       secretName: shop-tls
 
 resources: {}
@@ -119,24 +119,56 @@ readinessProbe:
     port: http
 
 autoscaling:
-  enabled: true
-  services:
-    - name: product
+  hpa:
+    enabled: false
+    monolith:
       minReplicas: 1
-      maxReplicas: 10
+      maxReplicas: 15
       targetCPUUtilizationPercentage: 80
-    - name: user
-      minReplicas: 1
-      maxReplicas: 10
-      targetCPUUtilizationPercentage: 70
-    - name: cart
-      minReplicas: 1
-      maxReplicas: 10
-      targetCPUUtilizationPercentage: 75
-    - name: order
-      minReplicas: 1
-      maxReplicas: 10
-      targetCPUUtilizationPercentage: 65
+    services:
+      - name: product
+        minReplicas: 1
+        maxReplicas: 10
+        targetCPUUtilizationPercentage: 80
+      - name: user
+        minReplicas: 1
+        maxReplicas: 10
+        targetCPUUtilizationPercentage: 70
+      - name: cart
+        minReplicas: 1
+        maxReplicas: 10
+        targetCPUUtilizationPercentage: 75
+      - name: order
+        minReplicas: 1
+        maxReplicas: 10
+        targetCPUUtilizationPercentage: 65
+  vpa:
+    enabled: false
+    monolith:
+      maxAllowed:
+        cpu: 800m
+        memory: 1600Mi
+    services:
+      - name: product
+        maxAllowed:
+          cpu: 400m
+          memory: 800Mi
+        controlledResources: [ "cpu", "memory" ]
+      - name: user
+        maxAllowed:
+          cpu: 400m
+          memory: 800Mi
+        controlledResources: [ "cpu", "memory" ]
+      - name: cart
+        maxAllowed:
+          cpu: 400m
+          memory: 800Mi
+        controlledResources: [ "cpu", "memory" ]
+      - name: order
+        maxAllowed:
+          cpu: 400m
+          memory: 800Mi
+        controlledResources: [ "cpu", "memory" ]
 
 
 volumes: []
