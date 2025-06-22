@@ -19,8 +19,8 @@ func InitDB() {
 	username := os.Getenv("AZURE_SQL_USER")
 	password := os.Getenv("AZURE_SQL_PASSWORD")
 
-	dsn := fmt.Sprintf("sqlserver://%s:%s@%s?database=%s",
-		username, password, server, database)
+	dsn := fmt.Sprintf("server=%s;user id=%s;password=%s;database=%s;",
+		server, username, password, database)
 
 	DB, err = gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
 	if err != nil {
