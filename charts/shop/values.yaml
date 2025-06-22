@@ -7,7 +7,7 @@ dbSecretName: sql-connection
 monolith:
   name: monolith-shop
   image:
-    repository: dmytrovorona1nure/monolith-shop
+    repository: dmvoronashop.azurecr.io/monolith-shop
     tag: latest
     pullPolicy: Always
   service:
