@@ -24,6 +24,9 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.dbSecretName }}
+          {{- if .Values.resources }}
+          {{ .Values.resources }}
+          {{- end }}
 ---
 apiVersion: v1
 kind: Service
